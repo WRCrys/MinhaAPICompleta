@@ -68,11 +68,11 @@ namespace DevCA.Business.Services
                 return false;
             }
 
-            var endereco = await _fornecedorRepository.ObterFornecedorEndereco(id);
+            var fornecedor = await _fornecedorRepository.ObterFornecedorEndereco(id);
 
-            if (endereco != null)
+            if (fornecedor != null)
             {
-                await _enderecoRepository.Remover(endereco.Id);
+                await _enderecoRepository.Remover(fornecedor.Endereco.Id);
             }
 
             await _fornecedorRepository.Remover(id);
