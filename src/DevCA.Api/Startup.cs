@@ -3,6 +3,7 @@ using DevCA.Api.Configuration;
 using DevCA.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,9 +28,15 @@ namespace DevCA.Api
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            //[01]
             services.AddControllers()
                 .AddNewtonsoftJson(options => 
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.Configure<ApiBehaviorOptions>(options => 
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
             services.AddAutoMapper(typeof(Startup));
 
