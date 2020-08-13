@@ -32,7 +32,7 @@ Lá tu encontrará o erro e a solução aplicada e assim vai para todos os erros
 #### Configurando o seu próprio contexto
 ##### Adicionando a nossa migration para criarmos o banco passando o contexto pois nessa aplicação temos dois contextos e não é entendido quando tem mais de um.
 
-PM> `Add-Migration Initial  -Context MeuDbContext
+PM> `Add-Migration Initial  -Context MeuDbContext`
 
 
 ------------

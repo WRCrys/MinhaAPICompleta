@@ -26,5 +26,9 @@
     <ProjectReference Include="..\DevCA.Data\DevCA.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\imagens\" />
+  </ItemGroup>
+
 
 </Project>

@@ -38,6 +38,15 @@ namespace DevCA.Api
                 options.SuppressModelStateInvalidFilter = true;
             });
 
+            //Para resolver o problema de bloqueido de CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Development",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
             services.AddAutoMapper(typeof(Startup));
 
             //Resolvendo dependencias
@@ -57,6 +66,8 @@ namespace DevCA.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("Development");
 
             app.UseEndpoints(endpoints =>
             {
