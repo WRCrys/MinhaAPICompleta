@@ -10,7 +10,7 @@
 Ao longo do desenvolvimento encontrei alguns obstáculos que eu decidi documentar a fim de me ajudar em futuros projetos e ajudar quem estiver vendo o projeto
 o arquivo [Dificuldade de Projeto](https://github.com/WRCrys/MinhaApiCompleta/blob/master/Dificuldades%20de%20Projeto.md) contém um padrão onde tem um id e esse ai estará visivel como comentário no código fonte assim:
 
-`Startup.cs`
+`ApiConfig.cs`
 
 ```csharp
 //[01]
