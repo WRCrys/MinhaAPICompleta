@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using DevCA.Api.ViewModels;
 using DevCA.Business.Models;
 
@@ -16,6 +15,8 @@ namespace DevCA.Api.Configuration
             CreateMap<Endereco, EnderecoViewModel>().ReverseMap();
 
             CreateMap<ProdutoViewModel, Produto>();
+
+            CreateMap<ProdutoImagemViewModel, Produto>().ReverseMap();
 
             CreateMap<Produto, ProdutoViewModel>()
                 .ForMember(dest => dest.NomeFornecedor, opt => opt.MapFrom(src => src.Fornecedor.Nome));
