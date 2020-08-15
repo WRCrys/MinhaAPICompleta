@@ -8,6 +8,16 @@ PM> `Install-Package Microsoft.EntityFrameworkCore`
 ------------
 
 
+##### Instalando os pacotes necessários para o Identity
+
+PM> `Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore`
+
+PM> `Install-Package Microsoft.AspNetCore.Identity.UI`
+
+
+------------
+
+
 ##### Instalando o Relational do Entity Framework Core para conseguirmos mapear o tipo e tamanho das colunas
 
 PM> `Install-Package Microsoft.EntityFrameworkCore.Relational`
