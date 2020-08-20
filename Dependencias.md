@@ -55,3 +55,11 @@ PM> `Install-Package Microsoft.EntityFrameworkCore.Sqlserver`
 PM> `Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson`
 
 
+------------
+
+
+##### Pacote do JWT Bearer
+
+PM> `Install-Package Microsoft.AspNetCore.Authentication.JwtBearer`
+
+
