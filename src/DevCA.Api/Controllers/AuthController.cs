@@ -27,7 +27,7 @@ namespace DevCA.Api.Controllers
 
             var user = new IdentityUser
             {
-                UserName = "Teste",
+                UserName = registerUser.Email,
                 Email = registerUser.Email,
                 EmailConfirmed = true
             };

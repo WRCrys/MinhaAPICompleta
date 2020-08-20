@@ -1,4 +1,5 @@
 ﻿using DevCA.Api.Data;
+using DevCA.Api.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ namespace DevCA.Api.Configuration
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<IdentityPortugueseMessage>()
                 .AddDefaultTokenProviders();
 
             return services;
