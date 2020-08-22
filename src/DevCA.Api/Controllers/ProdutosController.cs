@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using DevCA.Api.Extensions;
 using DevCA.Api.ViewModels;
 using DevCA.Business.Interfaces;
 using DevCA.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace DevCA.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class ProdutosController : MainController
     {
@@ -44,6 +47,7 @@ namespace DevCA.Api.Controllers
             return produtoViewModel;
         }
 
+        [ClaimsAuthorize("Produto", "Adicionar")]
         [HttpPost]
         public async Task<ActionResult<ProdutoViewModel>> Adicionar(ProdutoViewModel produtoViewModel)
         {
@@ -63,6 +67,7 @@ namespace DevCA.Api.Controllers
             return CustomResponse(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto", "Atualizar")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Atualizar(Guid id, ProdutoViewModel produtoViewModel) 
         {
@@ -100,6 +105,7 @@ namespace DevCA.Api.Controllers
             return CustomResponse();
         }
 
+        [ClaimsAuthorize("Produto", "Adicionar")]
         [RequestSizeLimit(50000000)] //<- Define o tamano do request para o IFormFile receber arquivos pesados
         //[DisableRequestSizeLimit] //<- Desabilita o tamanho do request para o IFormFile receber arquivos pesados
         [HttpPost("Adicionar")]
@@ -121,6 +127,7 @@ namespace DevCA.Api.Controllers
             return CustomResponse(produtoImagemViewModel);
         }
 
+        [ClaimsAuthorize("Produto", "Remover")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
         {
