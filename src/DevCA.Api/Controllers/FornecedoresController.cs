@@ -25,7 +25,8 @@ namespace DevCA.Api.Controllers
                                       IEnderecoRepository enderecoRepository,
                                       IFornecedorService fornecedorService,
                                       INotificador notificador,
-                                      IMapper mapper) : base(notificador)
+                                      IUser appUser,
+                                      IMapper mapper) : base(notificador, appUser)
         {
             _fornecedorRepository = fornecedorRepository;
             _enderecoRepository = enderecoRepository;
@@ -57,6 +58,11 @@ namespace DevCA.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<FornecedorViewModel>> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
+            if (UsuarioAutenticado)
+            {
+                var userName = UsuarioId;
+            }
+
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(fornecedorViewModel));

@@ -24,7 +24,8 @@ namespace DevCA.Api.Controllers
         public ProdutosController(IProdutoRepository produtoRepository,
                                   IProdutoService produtoService,
                                   IMapper mapper,
-                                  INotificador notificador) : base(notificador)
+                                  INotificador notificador,
+                                  IUser appUser) : base(notificador, appUser)
         {
             _produtoRepository = produtoRepository;
             _produtoService = produtoService;

@@ -24,7 +24,8 @@ namespace DevCA.Api.Controllers
         public AuthController(INotificador notificador,
                               SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager, 
-                              IOptions<AppSettings> appSettings) : base(notificador)
+                              IOptions<AppSettings> appSettings,
+                              IUser appUser) : base(notificador, appUser)
         {
             _signInManager = signInManager;
             _userManager = userManager;

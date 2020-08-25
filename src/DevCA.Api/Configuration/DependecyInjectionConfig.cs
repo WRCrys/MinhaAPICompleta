@@ -1,8 +1,10 @@
-﻿using DevCA.Business.Interfaces;
+﻿using DevCA.Api.Extensions;
+using DevCA.Business.Interfaces;
 using DevCA.Business.Notifications;
 using DevCA.Business.Services;
 using DevCA.Data.Context;
 using DevCA.Data.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DevCA.Api.Configuration
@@ -19,6 +21,9 @@ namespace DevCA.Api.Configuration
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IFornecedorService, FornecedorService>();
             services.AddScoped<IProdutoService, ProdutoService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUser, AspNetUser>();
             return services;
         }
     }
