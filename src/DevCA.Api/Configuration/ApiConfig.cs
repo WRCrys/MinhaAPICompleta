@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
 
 namespace DevCA.Api.Configuration
 {
@@ -25,6 +26,13 @@ namespace DevCA.Api.Configuration
                     builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
+
+                options.AddPolicy("Production",
+                    builder => builder.WithMethods("*")
+                    .WithOrigins("http://localhost")
+                    .SetIsOriginAllowedToAllowWildcardSubdomains()
+                    //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
+                    .AllowAnyHeader());
             });
 
             return services;
@@ -37,8 +45,6 @@ namespace DevCA.Api.Configuration
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseCors("Development");
 
             app.UseEndpoints(endpoints =>
             {
