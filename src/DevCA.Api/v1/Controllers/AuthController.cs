@@ -1,4 +1,5 @@
-﻿using DevCA.Api.Extensions;
+﻿using DevCA.Api.Controllers;
+using DevCA.Api.Extensions;
 using DevCA.Api.ViewModels;
 using DevCA.Business.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -12,9 +13,10 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevCA.Api.Controllers
+namespace DevCA.Api.v1.Controllers
 {
-    [Route("api")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}")]
     public class AuthController : MainController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -23,7 +25,7 @@ namespace DevCA.Api.Controllers
 
         public AuthController(INotificador notificador,
                               SignInManager<IdentityUser> signInManager,
-                              UserManager<IdentityUser> userManager, 
+                              UserManager<IdentityUser> userManager,
                               IOptions<AppSettings> appSettings,
                               IUser appUser) : base(notificador, appUser)
         {
@@ -87,7 +89,7 @@ namespace DevCA.Api.Controllers
             var claims = await _userManager.GetClaimsAsync(user);
             var userRoles = await _userManager.GetRolesAsync(user);
             var users = await _userManager.GetUserAsync(User);
-            
+
             claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
@@ -101,10 +103,10 @@ namespace DevCA.Api.Controllers
 
             var identityClaims = new ClaimsIdentity();
             identityClaims.AddClaims(claims);
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var token = tokenHandler.CreateToken(new SecurityTokenDescriptor 
+            var token = tokenHandler.CreateToken(new SecurityTokenDescriptor
             {
                 Issuer = _appSettings.Emissor,
                 Audience = _appSettings.ValidoEm,

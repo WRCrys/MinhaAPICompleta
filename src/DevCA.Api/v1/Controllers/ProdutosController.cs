@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DevCA.Api.Controllers;
 using DevCA.Api.Extensions;
 using DevCA.Api.ViewModels;
 using DevCA.Business.Interfaces;
@@ -11,10 +12,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace DevCA.Api.Controllers
+namespace DevCA.Api.v1.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class ProdutosController : MainController
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -70,9 +72,9 @@ namespace DevCA.Api.Controllers
 
         [ClaimsAuthorize("Produto", "Atualizar")]
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Atualizar(Guid id, ProdutoViewModel produtoViewModel) 
+        public async Task<IActionResult> Atualizar(Guid id, ProdutoViewModel produtoViewModel)
         {
-            if (id != produtoViewModel.Id) 
+            if (id != produtoViewModel.Id)
             {
                 NotificarErro("Os ids informados não são iguais!");
                 return CustomResponse();

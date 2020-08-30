@@ -2,7 +2,11 @@
 
 ##### Instalando o Entity Framework Core
 
-PM> `Install-Package Microsoft.EntityFrameworkCore`
+Visual Studio IDE
+`Install-Package Microsoft.EntityFrameworkCore`
+
+Dotnet CLI
+`dotnet add package Microsoft.EntityFrameworkCore`
 
 
 ------------
@@ -10,9 +14,17 @@ PM> `Install-Package Microsoft.EntityFrameworkCore`
 
 ##### Instalando os pacotes necessários para o Identity
 
-PM> `Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore`
+Visual Studio IDE
+`Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore`
 
-PM> `Install-Package Microsoft.AspNetCore.Identity.UI`
+Dotnet CLI
+`dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore`
+
+Visual Studio IDE
+`Install-Package Microsoft.AspNetCore.Identity.UI`
+
+Dotnet CLI
+`dotnet add package Microsoft.AspNetCore.Identity.UI`
 
 
 ------------
@@ -20,7 +32,11 @@ PM> `Install-Package Microsoft.AspNetCore.Identity.UI`
 
 ##### Instalando o Relational do Entity Framework Core para conseguirmos mapear o tipo e tamanho das colunas
 
-PM> `Install-Package Microsoft.EntityFrameworkCore.Relational`
+Visual Studio IDE
+`Install-Package Microsoft.EntityFrameworkCore.Relational`
+
+Dotnet CLI
+`dotnet add package Microsoft.EntityFrameworkCore.Relational`
 
 
 ------------
@@ -28,7 +44,11 @@ PM> `Install-Package Microsoft.EntityFrameworkCore.Relational`
 
 #### Configurando o Automapper para o uso de ViewModel
 
-PM> `Install-Package automapper.extensions.microsoft.dependencyinjection`
+Visual Studio IDE
+`Install-Package automapper.extensions.microsoft.dependencyinjection`
+
+Dotnet CLI
+`dotnet add package automapper.extensions.microsoft.dependencyinjection`
 
 
 ------------
@@ -36,7 +56,11 @@ PM> `Install-Package automapper.extensions.microsoft.dependencyinjection`
 
 ##### Framework para validação de negócio: [Fluent Validation](http://https://docs.fluentvalidation.net/en/latest/installation.html "Fluent Validation")
 
-PM> `Install-Package FluentValidation`
+Visual Studio IDE
+`Install-Package FluentValidation`
+
+Dotnet CLI
+`dotnet add package FluentValidation`
 
 
 ------------
@@ -44,7 +68,11 @@ PM> `Install-Package FluentValidation`
 
 ##### Caso queria criar um script sql precisará do pacote abaixo
 
-PM> `Install-Package Microsoft.EntityFrameworkCore.Sqlserver`
+Visual Studio IDE
+`Install-Package Microsoft.EntityFrameworkCore.Sqlserver`
+
+Dotnet CLI
+`dotnet add package Microsoft.EntityFrameworkCore.Sqlserver`
 
 
 ------------
@@ -52,7 +80,11 @@ PM> `Install-Package Microsoft.EntityFrameworkCore.Sqlserver`
 
 ##### Instalando o NewtonsoftJson para solucionar o problema 01 citado no arquivo de dificuldades de projeto
 
-PM> `Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson`
+Visual Studio IDE
+`Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson`
+
+Dotnet CLI
+`dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson`
 
 
 ------------
@@ -60,6 +92,29 @@ PM> `Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson`
 
 ##### Pacote do JWT Bearer
 
-PM> `Install-Package Microsoft.AspNetCore.Authentication.JwtBearer`
+Visual Studio IDE
+`Install-Package Microsoft.AspNetCore.Authentication.JwtBearer`
+
+Dotnet CLI
+`dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer`
 
 
+------------
+
+
+##### Instalando o pacote para o versionamento da api
+
+Visual Studio IDE
+`Install-Package Microsoft.AspNetCore.Mvc.Versioning`
+
+Dotnet CLI
+`dotnet add package Microsoft.AspNetCore.Mvc.Versioning`
+
+Visual Studio IDE
+`Install-Package Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer`
+
+Dotnet CLI
+`dotnet add package Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer`
+
+
+------------

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DevCA.Api.Controllers;
 using DevCA.Api.Extensions;
 using DevCA.Api.ViewModels;
 using DevCA.Business.Interfaces;
@@ -9,10 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DevCA.Api.Controllers
+namespace DevCA.Api.v1.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class FornecedoresController : MainController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
@@ -54,7 +56,7 @@ namespace DevCA.Api.Controllers
             return fornecedor;
         }
 
-        [ClaimsAuthorize("Fornecedor","Adicionar")]
+        [ClaimsAuthorize("Fornecedor", "Adicionar")]
         [HttpPost]
         public async Task<ActionResult<FornecedorViewModel>> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
@@ -83,7 +85,7 @@ namespace DevCA.Api.Controllers
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             await _fornecedorService.Atualizar(_mapper.Map<Fornecedor>(fornecedorViewModel));
-            
+
             return CustomResponse(fornecedorViewModel);
         }
 

@@ -38,7 +38,7 @@ namespace DevCA.Api.Controllers
         {
             if (OperacaoValida())
             {
-                return Ok(new 
+                return Ok(new
                 {
                     success = true,
                     data = result
@@ -62,7 +62,7 @@ namespace DevCA.Api.Controllers
         {
             var erros = modelState.Values.SelectMany(e => e.Errors);
 
-            foreach(var erro in erros)
+            foreach (var erro in erros)
             {
                 var errorMessage = erro.Exception == null ? erro.ErrorMessage : erro.Exception.Message;
                 NotificarErro(errorMessage);
