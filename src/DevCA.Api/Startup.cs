@@ -3,6 +3,7 @@ using DevCA.Api.Configuration;
 using DevCA.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,11 +44,13 @@ namespace DevCA.Api
 
             services.WebApiConfig();
 
+            services.AddSwaggerConfig();
+
             //Resolvendo dependencias
             services.ResolveDependecies();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +66,8 @@ namespace DevCA.Api
             app.UseAuthentication();
 
             app.UseMvcConfiguration();
+
+            app.UseSwaggerConfig(provider);
             
         }
     }

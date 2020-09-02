@@ -118,3 +118,15 @@ Dotnet CLI
 
 
 ------------
+
+
+##### Implementação do Swagger
+
+Visual Studio IDE
+`Install-Package Swashbuckle.AspNetCore`
+
+Dotnet CLI
+`dotnet add package Swashbuckle.AspNetCore`
+
+
+------------
