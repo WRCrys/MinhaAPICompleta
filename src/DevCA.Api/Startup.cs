@@ -1,5 +1,6 @@
 using AutoMapper;
 using DevCA.Api.Configuration;
+using DevCA.Api.Extensions;
 using DevCA.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,6 +47,8 @@ namespace DevCA.Api
 
             services.AddSwaggerConfig();
 
+            services.AddLoggingConfiguration();
+
             //Resolvendo dependencias
             services.ResolveDependecies();
         }
@@ -65,9 +68,13 @@ namespace DevCA.Api
 
             app.UseAuthentication();
 
+            app.UseMiddleware<ExceptionMiddleware>();
+
             app.UseMvcConfiguration();
 
             app.UseSwaggerConfig(provider);
+
+            app.UseLoggingConfiguration();
             
         }
     }

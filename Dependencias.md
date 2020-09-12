@@ -130,3 +130,21 @@ Dotnet CLI
 
 
 ------------
+
+
+##### Implementação do ElmahIO
+
+Visual Studio IDE
+`Install-Package Elmah.Io.AspNetCore`
+
+Para monitorar os logs da aplicação
+`Install-Package Elmah.Io.Extensions.Logging`
+
+Dotnet CLI
+`dotnet add package Elmah.Io.AspNetCore`
+
+Para monitorar os logs da aplicação
+`dotnet add package Elmah.Io.Extensions.Logging`
+
+
+------------
