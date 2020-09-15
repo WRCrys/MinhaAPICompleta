@@ -47,7 +47,7 @@ namespace DevCA.Api
 
             services.AddSwaggerConfig();
 
-            services.AddLoggingConfiguration();
+            services.AddLoggingConfiguration(Configuration);
 
             //Resolvendo dependencias
             services.ResolveDependecies();
@@ -75,7 +75,7 @@ namespace DevCA.Api
             app.UseSwaggerConfig(provider);
 
             app.UseLoggingConfiguration();
-            
+
         }
     }
 }

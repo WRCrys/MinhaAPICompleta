@@ -148,3 +148,41 @@ Para monitorar os logs da aplicação
 
 
 ------------
+
+
+##### Implementação do HealthCheck
+
+Visual Studio IDE
+- Para o SQL Server
+`Install-Package AspNetCore.HealthChecks.SqlServer`
+
+- Para a interface visual
+`Install-Package AspNetCore.HealthChecks.Ui`
+
+- Para a memória
+`Install-Package AspNetCore.HealthChecks.UI.InMemory.Storage`
+
+- Para os responses
+`Install-Package AspNetCore.HealthChecks.Ui.Client`
+
+- Enviando para o Elmah
+`Install-Package Elmah.Io.AspNetCore.HealthChecks`
+
+Dotnet CLI
+- Para o SQL Server
+`dotnet add package AspNetCore.HealthChecks.SqlServer`
+
+- Para a interface visual
+`dotnet add package AspNetCore.HealthChecks.Ui`
+
+- Para a memória
+`dotnet add package AspNetCore.HealthChecks.UI.InMemory.Storage`
+
+- Para os responses
+`dotnet add package AspNetCore.HealthChecks.Ui.Client`
+
+- Enviando para o Elmah
+`dotnet add package Elmah.Io.AspNetCore.HealthChecks`
+
+
+------------
