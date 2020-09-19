@@ -24,7 +24,7 @@ Lá tu encontrará o erro e a solução aplicada e assim vai para todos os erros
 ### Status do desenvolvimento
 
 - [x] Desenvolvendo
-- [ ] Concluído
+- [x] Concluído
 
 
 ## Comandos para o Gerenciador de Pacotes
@@ -56,3 +56,16 @@ PM> `Update-Database`
 
 
 ------------
+
+
+##### Fazendo deploy para o Azure.
+
+Configure tudo no perfil de deploy, primeiro o servidor e a aplicação, posteriormente o servidor sql, no nosso caso o SQL Server e o novo banco.
+O Azure irá automaticamente colocar a connection string pontada para o banco na nuvem.
+Se já tiver configurado os hosts environments tudo bem, se não seria bom separar os ambientes.
+Como o banco na nuvem não tem as nossas tabelas, você precisará configurar pelo visual studio, para isso é importante apontar a variável de ambiente
+no console do gerenciador de pacotes.
+
+PM> `$env:ASPNETCORE_ENVIRONMENT='Production'`
+
+Agora é só rodar o comando para criar os contextos e pronto!!

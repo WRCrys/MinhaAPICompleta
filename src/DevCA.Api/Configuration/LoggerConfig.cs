@@ -38,6 +38,7 @@ namespace DevCA.Api.Configuration
                 {
                     elmah.ApiKey = "9263d7825aba4e4683ab6c1b11540f88";
                     elmah.LogId = new Guid("41ad137c-0af2-4eb7-b69e-deae6053d313");
+                    elmah.HeartbeatId = "FORNECEDORES_ID";
                     elmah.Application = "Api Fornecedores";
                 })
                 .AddCheck("Produtos", new SqlServerHealthCheck(configuration.GetConnectionString("DefaultConnection")))
